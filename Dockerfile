@@ -45,7 +45,7 @@ ADD portal-bd-MYSQL.properties /opt/liferay-portal-6.2-ce-ga6/portal-bd-MYSQL.pr
 ADD portal-bd-POSTGRESQL.properties /opt/liferay-portal-6.2-ce-ga6/portal-bd-POSTGRESQL.properties
 
 # volumes
-VOLUME ["/var/liferay-home", "/opt/liferay-portal-6.2-ce-ga6/"]
+VOLUME /var/liferay-home
 
 # Ports
 EXPOSE 8080
