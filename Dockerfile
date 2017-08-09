@@ -22,14 +22,7 @@ MAINTAINER Tamas Szerb
 # Install base packages
 RUN \
 	apt-get update && \
-	apt-get install -y curl unzip
-
-# Install Java
-RUN (curl -s -k -L -C - -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-linux-x64.tar.gz | tar xfz - -C /) \
-	&& mv /jdk1.8.0_25/jre /jre1.8.0_25 \
-	&& mv /jdk1.8.0_25/lib/tools.jar /jre1.8.0_25/lib/ext \
-	&& rm -Rf /jdk1.8.0_25 \
-	&& ln -s /jre1.8.0_25 /java
+	apt-get install -y curl unzip openjdk-8-jdk
 
 # install liferay
 RUN curl -O -s -k -L -C - http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip \
@@ -55,7 +48,7 @@ ENV PORT 8080
 ENV WEBSITES_PORT 8080
 
 # Set JAVA_HOME
-ENV JAVA_HOME /java
+#ENV JAVA_HOME /java
 
 # EXEC
 CMD ["run"]
