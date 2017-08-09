@@ -50,6 +50,10 @@ VOLUME /var/liferay-home
 # Ports
 EXPOSE 8080
 
+# let Azure - Web App On Linux know the port https://docs.microsoft.com/en-us/azure/app-service-web/app-service-linux-faq
+ENV PORT 8080
+ENV WEBSITES_PORT 8080
+
 # Set JAVA_HOME
 ENV JAVA_HOME /java
 
